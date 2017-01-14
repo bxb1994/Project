@@ -1,0 +1,46 @@
+.addliuyan{
+    height: 0;
+    overflow:hidden;
+}
+@keyframes addliuyanopen {
+    0%{
+        height:0;
+    }
+    100%{
+        height:300px;
+    }
+}
+@keyframes addliuyanclose {
+    0%{
+        height:300px;
+    }
+    100%{
+        height:0;
+    }
+}
+.notice{
+    width:200px;
+    height:200px;
+    background: #ccc;
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    margin:auto;
+    border:1px solid red;
+    display: none;
+}
+.done{
+    width:200px;
+    height:200px;
+    background: #ccc;
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    margin:auto;
+    border:1px solid red;
+    display: none;
+}

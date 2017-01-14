@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="public/js/zepto.min.js"></script>
+    <script>
+        //代理 让另外一个和请求页面在同一个域下面的服务器
+        function bb(data) {
+//            console.log(data);
+            var str="";
+            for(var i=0;i<data.length;i++){
+                str+=data[i].cname;
+            }
+            document.getElementsByTagName("div")[0].innerHTML(str);
+        }
+    </script>
+    <script>
+        window.onload=function () {
+            var div=document.getElementsByTagName("div");
+            /* $.ajax({   //跨域不能用
+             url:'http://localhost:7777/demo',
+             type:"get",
+             success:function (e) {
+             console.log(e);
+             }
+             })*/
+        }
+    </script>
+</head>
+<body>
+<div class=""></div>
+</body>
+<script src="http://localhost:8989/demo?callback=bb"></script>
+<!--具有访问外部域名的能力-->
+</html>

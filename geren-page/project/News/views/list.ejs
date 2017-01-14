@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/mui.css" />
+    <link rel="stylesheet" href="/static/css/mui.min.css" />
+    <script src="/static//js/zepto.min.js"></script>
+    <script src="/static/js/swiper.jquery.js"></script>
+    <script src="/static/js/swiper.animate1.0.2.min.js"></script>
+    <script src="/static/js/resize.js"></script>
+    <script src="/static/js/iscroll.js"></script>
+    <script src="/static/js/mui.js"></script>
+    <script src="/static/js/mui.min.js"></script>
+    <style>
+        .mask{
+            width:100%;
+            height: 93%;
+            background: #000;
+            opacity: 0;
+            position: fixed;
+            left: -100%;
+            top: 0;
+            z-index: 2000;
+            transition:opacity 1s linear;
+        }
+        .express{
+            width:80%;height: 100%;
+            position: fixed;
+            left: -80%;
+            top: 0;
+            background: #fff;
+            z-index: 2001;
+            transition: left 1s ease;
+        }
+
+    </style>
+</head>
+<body>
+<div class="news-home">
+    <div class="home">
+       <%include header.ejs%>
+        <div class="mask"></div>
+        <div class="express">
+            <ul class="mui-table-view abc">
+
+            </ul>
+        </div>
+        <div class="swiper-container swiper-container-horizontal main-page" id="swiper-container2">
+            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                <div class="swiper-slide swiper-slide-active">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <div class="news-neirong">
+                                <%for(var j=0;j<lists.length;j++){%>
+                                 <div class="news-next">
+                                     <a href="/show/<%=lists[j].id%>">
+                                         <div class="news-box">
+                                             <p><%=lists[j].atitle%></p>
+                                             <div class="bottom">
+                                                 <span class="biank">视频</span>
+                                                 <span class="nobiank">一首日光曲</span>
+                                                 <div class="news-pinglun">
+                                                     <span>**评</span>
+                                                     <span class="iconfont"></span>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="news-left">
+                                             <img src="/static/img/<%=lists[j].aimg.split(";")[0]%>" alt=""/>
+                                         </div>
+                                         <div class="line"></div>
+                                     </a>
+                                 </div>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var mySwiper1 = new Swiper('#swiper-container1',{
+        watchSlidesProgress : true,
+        watchSlidesVisibility : true,
+        slidesPerView:6,
+        onTap: function(){
+            mySwiper2.slideTo( mySwiper1.clickedIndex)
+        }
+    })
+
+    var mySwiper2 = new Swiper('#swiper-container2',{
+        pagination: '.swiper-pagination',
+        onSlideChangeStart: function(){
+            updateNavPosition();
+        }
+    })
+
+    function updateNavPosition(){
+        $('#swiper-container1 .active-nav').removeClass('active-nav')
+        var activeNav = $('#swiper-container1 .swiper-slide').eq(mySwiper2.activeIndex).addClass('active-nav');
+        if (!activeNav.hasClass('swiper-slide-visible')) {
+            if (activeNav.index()>mySwiper1.activeIndex) {
+                var thumbsPerNav = Math.floor(mySwiper1.width/activeNav.width())-1
+                mySwiper1.slideTo(activeNav.index()-thumbsPerNav)
+            }
+            else {
+                mySwiper1.slideTo(activeNav.index())
+            }
+        }
+    }
+    var mySwiper3 = new Swiper('#swiper-container3',{
+        pagination: '.swiper-pagination',
+        autoplay : 5000,
+        loop : true,
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+            swiperAnimateCache(swiper); //隐藏动画元素
+            swiperAnimate(swiper); //初始化完成开始动画
+        },
+        onSlideChangeEnd: function(swiper){
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        }
+    })
+    mui('.mui-scroll-wrapper').scroll({
+        deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+    });
+</script>

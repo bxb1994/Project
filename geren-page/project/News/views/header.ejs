@@ -1,0 +1,39 @@
+
+
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/mui.css" />
+    <link rel="stylesheet" href="/static/css/mui.min.css" />
+    <script src="/static//js/zepto.min.js"></script>
+    <script src="/static/js/swiper.jquery.js"></script>
+    <script src="/static/js/swiper.animate1.0.2.min.js"></script>
+    <script src="/static/js/resize.js"></script>
+    <script src="/static/js/iscroll.js"></script>
+    <script src="/static/js/mui.js"></script>
+    <script src="/static/js/mui.min.js"></script>
+
+<header>
+    <div class="head-nav">
+        <div class="head">
+            <%if(!login){%>
+            <a href="/user/login">登录/</a>
+            <a href="/user/reg">注册</a>
+            <%}else{%>
+            <a href="/user/logout">退出登录</a>
+            <%}%>
+        </div>
+        <div class="swiper-container swiper-container-horizontal nav-menu" id="swiper-container1">
+            <div class="swiper-wrapper">
+                <%for(var i=0;i<categorys.length;i++){%>
+                <div class="swiper-slide one"><a href="/list/<%=categorys[i].cid%>"><%=categorys[i].cname%></a></div>
+                <%}%>
+            </div>
+        </div>
+        <a href=""><div class="iconfont btn"></div></a>
+    </div>
+    <div class="sousuo">
+        <input type="search" class="iconfont" placeholder="搜索">
+    </div>
+</header>

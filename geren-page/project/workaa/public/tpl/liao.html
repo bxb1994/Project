@@ -1,0 +1,12 @@
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#!/liaotian"></a>
+    <h1 class="mui-title">聊天</h1>
+</header>
+<ul class="history" style="width:90%;height:500px;border:1px solid #ccc;margin-left:5%;margin-top:12%;border-radius:10px;">
+    <li ng-repeat="item in message">
+        <span>{{item.self}}</span>
+        <span>{{item.text}}</span>
+    </li>
+</ul>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<input type="button" value="发送" ng-click="click()" id="sends">

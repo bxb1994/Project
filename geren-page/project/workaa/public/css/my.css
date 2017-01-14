@@ -1,0 +1,27 @@
+.addBtn{
+    width:100%;padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+    border:1px solid #ccc;
+    display: block;
+    margin-top:8px;
+    margin-bottom:10px;
+}
+.addBtn:active{
+    background: #ccc;
+}
+.message{
+    text-align: center;
+    padding:10px 0;
+}
+textarea{
+    width:280px;height:40px;
+    margin-left:5%;
+}
+#sends{
+    background:#00b0e0;height:35px;
+    margin-top:2px;
+}
+.telphone{
+    padding-right:10px;
+}

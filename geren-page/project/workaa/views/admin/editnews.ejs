@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        form{
+            width:40%;
+            margin-top:50px;
+        }
+        .form-group{
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form role="form" action="/admin/updatenewsInfo" method="post">
+        <div class="form-group">
+            <label for="username">username</label>
+            <input type="text" class="form-control" id="title" placeholder="username" name="title" required value="<%=rows['title']%>">
+        </div>
+        <div class="form-group">
+            <label for="phone">phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="phone" name="phone" required value="<%=rows['phone']%>">
+        </div>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" class="form-control" id="email" placeholder="email" name="email" required value="<%=rows['email']%>">
+        </div>
+        <div class="form-group">
+            <label for="address">address</label>
+            <input type="text" class="form-control" id="address" placeholder="address" name="address" required value="<%=rows['address']%>">
+        </div>
+        <input type="hidden" value="<%=rows['id']%>" name="id">
+
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<style>
+    .view-animate {
+        transition:left ease 1s;
+    }
+    .view-animate.ng-enter, .view-animate.ng-leave {
+        width:100%;
+        position:absolute;
+        left:0;
+
+    }
+    .view-animate.ng-enter {
+        left: 100%;
+    }
+    .view-animate.ng-enter.ng-enter-active {
+        left: 0;
+    }
+    .view-animate.ng-leave.ng-leave-active {
+        left:-100%;
+    }
+    ul li{
+        width:90%;margin-left:5%;
+        padding:15px 5px;
+        border-bottom:1px solid #ccc;
+
+    }
+    ul li span{
+        width:80%;
+        margin-left:25px;
+        font-size:20px;
+        float:right;
+    }
+</style>
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="#!/"></a>
+    <h1 class="mui-title">内容</h1>
+</header>
+<div class="mui-content">
+    <ul class="mui-table-view">
+        <li>备注<span>{{title}}</span></li>
+        <li>电话<span>{{phone}}</span></li>
+        <li>邮箱<span>{{email}}</span></li>
+        <li>住址<span>{{address}}</span></li>
+    </ul>
+</div>

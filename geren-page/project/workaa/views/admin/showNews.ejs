@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        th,td{
+            text-align: center;
+        }
+        a{
+            padding:0 5px;
+        }
+    </style>
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>名字</th>
+        <th>电话</th>
+        <th>邮箱</th>
+        <th>地址</th>
+        <th>操作</th>
+    </tr>
+    <%for(var i=0;i<rows.length;i++){%>
+    <tr>
+        <td>
+            <%=rows[i].title%>
+        </td>
+        <td>
+            <%=rows[i].phone%>
+        </td>
+        <td>
+            <%=rows[i].email%>
+        </td>
+        <td>
+            <%=rows[i].address%>
+        </td>
+        <td>
+            <a href="/admin/editnews/<%=rows[i].id%>">
+                修改
+            </a>
+            <a href="/admin/delnews/<%=rows[i].id%>">
+                删除
+            </a>
+        </td>
+    </tr>
+    <%}%>
+
+</table>
+</body>
+</html>
